@@ -23,15 +23,21 @@ Creating functions
 def get_config_attrs():
 	'''
 	'''
-	path = './config/config.ini'
+	# path = './config/config.ini'
 	
-	# config parser
-	config = ConfigParser()
-	config.read(path)
+	# # config parser
+	# config = ConfigParser()
+	# config.read(path)
 
-	# Telegram API credentials
-	attrs = config['Telegram API credentials']
-	return dict(attrs)
+	# # Telegram API credentials
+	# attrs = config['Telegram API credentials']
+	# return dict(attrs)
+	attrs = dict()
+	attrs['api_id'] = os.environ['api_id']
+	attrs['api_hash'] = os.environ['api_hash']
+	attrs['phone'] = os.environ['phone']
+
+	return attrs
 
 
 # event loop
