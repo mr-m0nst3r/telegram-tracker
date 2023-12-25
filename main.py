@@ -384,8 +384,10 @@ df = pd.read_csv(
 )
 
 del counter_df['username']
-df = df.merge(counter_df, how='left', on='id')
-df.to_csv(
+# df = df.merge(counter_df, how='left', on='id', )
+merged_df = pd.merge(df, counter_df, on=['id'], how='left')
+# df.to_csv(
+merged_df.to_csv(
 	f'{output_folder}/collected_chats.csv',
 	index=False,
 	encoding='utf-8'
